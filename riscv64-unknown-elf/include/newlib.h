@@ -21,7 +21,7 @@
 #define _WANT_IO_LONG_LONG 1
 
 /* Register application finalization function using atexit. */
-/* #undef _WANT_REGISTER_FINI */
+#define _WANT_REGISTER_FINI 1
 
 /* long double type support in IO functions like printf/scanf enabled */
 #define _WANT_IO_LONG_DOUBLE 1
@@ -32,6 +32,9 @@
 /* Optional reentrant struct support.  Used mostly on platforms with
    very restricted storage.  */
 /* #undef _WANT_REENT_SMALL */
+
+/* Verify _REENT_CHECK macros allocate memory successfully. */
+#define _REENT_CHECK_VERIFY 1
 
 /* Multibyte supported */
 /* #undef _MB_CAPABLE */

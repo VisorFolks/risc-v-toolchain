@@ -5,7 +5,7 @@
  * Redistribution and use in source and binary forms are permitted
  * provided that the above copyright notice and this paragraph are
  * duplicated in all such forms and that any documentation,
- * advertising materials, and other materials related to such
+ * and/or other materials related to such
  * distribution and use acknowledge that the software was developed
  * by the University of California, Berkeley.  The name of the
  * University may not be used to endorse or promote products derived
@@ -180,13 +180,13 @@ typedef _fpos64_t fpos64_t;
 #if __POSIX_VISIBLE
 char *	ctermid (char *);
 #endif
-#if __XSI_VISIBLE && __XSI_VISIBLE < 600
+#if __GNU_VISIBLE || (__XSI_VISIBLE && __XSI_VISIBLE < 600)
 char *	cuserid (char *);
 #endif
 FILE *	tmpfile (void);
 char *	tmpnam (char *);
 #if __BSD_VISIBLE || __XSI_VISIBLE || __POSIX_VISIBLE >= 200112
-char *	tempnam (const char *, const char *);
+char *	tempnam (const char *, const char *) __malloc_like __result_use_check;
 #endif
 int	fclose (FILE *);
 int	fflush (FILE *);
